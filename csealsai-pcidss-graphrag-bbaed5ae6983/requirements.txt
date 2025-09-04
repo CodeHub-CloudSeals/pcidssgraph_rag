@@ -1,0 +1,6 @@
+neo4j-graphrag[openai]
+python-dotenv
+nest_asyncio
+PyMuPDF
+fastapi
+uvicorn[standard]
