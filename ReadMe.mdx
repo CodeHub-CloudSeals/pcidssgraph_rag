@@ -1,0 +1,21 @@
+# Run Locally
+[ ! -d "venv" ] && python3 -m venv venv; source venv/bin/activate; pip install -r requirements.txt; python3 main.py
+
+# Run http Server
+python http_server.py
+
+# Test Server 
+(venv) anshu@AGs-MacBook-Pro pcidss-graphrag % curl -X POST http://localhost:8000/run/step0_drop_index
+{"status":"Step 0 completed successfully"}%                                                                                                   
+(venv) anshu@AGs-MacBook-Pro pcidss-graphrag % curl -X POST http://localhost:8000/run/step2_create_index
+{"status":"Step 2 completed successfully"}%                                                                                                   
+(venv) anshu@AGs-MacBook-Pro pcidss-graphrag % curl -X POST http://localhost:8000/run/step3_upsert_vectors
+{"status":"Step 3 completed successfully"}%                                                                                                   
+(venv) anshu@AGs-MacBook-Pro pcidss-graphrag % curl -X POST http://localhost:8000/run/step4_run_query
+{"status":"Step 4 completed successfully"}%  
+
+# Docker 
+Build the container     :   'docker-compose up --build -d'
+Start the application   :   `docker-compose up -d`
+Stop the application    :   `docker-compose down`
+View logs               :   `docker-compose logs`
